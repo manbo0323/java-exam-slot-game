@@ -42,7 +42,7 @@ Here are the weights of each symbol name:
 
 ### R3. Payout Calculation
 
-If the resulting symbol combination of the spin is winning combination, the payout will be calcutated according to it's Bet Multiplier below:
+If the resulting symbol combination of the spin is winning combination, the payout will be calculated according to it's Bet Multiplier below:
 
 | Winning Combination | Bet Multiplier |
 |-------------|----------------|

@@ -41,9 +41,9 @@ public enum Symbol {
                 (symbolHitCounts.get(BELL) != null && symbolHitCounts.get(BELL) >= 3) ||
                 (symbolHitCounts.get(PLUM) != null && symbolHitCounts.get(PLUM) >= 3)) {
             return 20;
-        } else if (symbolHitCounts.get(BAR) != null && (symbolHitCounts.get(BAR) == 1) &&
-                symbolHitCounts.get(BELL) != null && (symbolHitCounts.get(BELL) == 1) &&
-                symbolHitCounts.get(PLUM) != null && (symbolHitCounts.get(PLUM) == 1)) {
+        } else if (symbolHitCounts.get(BAR) != null && (symbolHitCounts.get(BAR) >= 1) &&
+                symbolHitCounts.get(BELL) != null && (symbolHitCounts.get(BELL) >= 1) &&
+                symbolHitCounts.get(PLUM) != null && (symbolHitCounts.get(PLUM) >= 1)) {
             return 30;
         }
         return 0;

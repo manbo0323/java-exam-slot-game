@@ -22,7 +22,7 @@ public class EvaluatorImpl implements Evaluator {
         System.out.println("Symbols Hit - " + symbolHitCounts);
         int multiple = Symbol.multiple(symbolHitCounts);
         System.out.println("multiple - " + multiple);
-        return bet * Symbol.multiple(symbolHitCounts);
+        return bet * multiple;
     }
 
     private EnumMap<Symbol, Integer> symbolHitCount(List<Symbol> symbols) {
