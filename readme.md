@@ -16,12 +16,12 @@ The slot machine will have the following Reel setup.
 
 | Reel 1 | Reel 2 | Reel 3 |
 |--------|--------|--------|
-|A | Z | A |
-|B | Y | B |
-|C | X | C |
-|X | A | X |
-|Y | B | Y |
-|Z | C | Z |
+|BAR | LEMON | BAR |
+|BELL | CHERRY | BELL |
+|PLUM | ORANGE | PLUM |
+|ORANGE | PLUM | ORANGE |
+|CHERRY | BELL | CHERRY |
+|LEMON | BAR | LEMON |
 
 ### R2. Weights
 
@@ -32,12 +32,12 @@ Here are the weights of each symbol name:
 
 | Symbol Name | Symbol Weight |
 |-------------|--------------|
-| A | 1 |
-| B | 1 |
-| C | 1 |
-| X | 2 |
-| Y | 3 |
-| Z | 4 |
+| BAR | 1 |
+| BELL | 1 |
+| PLUM | 1 |
+| ORANGE | 2 |
+| CHERRY | 3 |
+| LEMON | 4 |
 
 
 ### R3. Payout Calculation
@@ -46,10 +46,10 @@ If the resulting symbol combination of the spin is winning combination, the payo
 
 | Winning Combination | Bet Multiplier |
 |-------------|----------------|
-| A,A,A | 20  |
-| B,B,B | 20  |
-| C,C,C | 20  |
-| A,B,C | 30  |
+| BAR,BAR,BAR | 20  |
+| BELL,BELL,BELL | 20  |
+| PLUM,PLUM,PLUM | 20  |
+| BAR,BELL,PLUM | 30  |
 
 Note:
 Payout = Bet * Bet Multiplier.
@@ -58,7 +58,7 @@ There is no payout if the spin result is not a winning one.
 
 ## Instruction
 1. Checkout this project and build using maven `mvn clean install`
-2. You will need to create a project (use maven or gradle) with a depency to this project. example dependency: 
+2. You will need to create a project (use maven or gradle) with a dependency to this project. example dependency: 
 ```
 ...
 <dependency>  
@@ -79,4 +79,7 @@ There is no payout if the spin result is not a winning one.
 
 
 For reference: Please see javadoc of the class `com.genesis.exams.slot.SlotMachine` and of its composition (ie: `com.genesis.exams.slot.Reel`, `com.genesis.exams.slot.Spinner`., etc)
-# java-exam-slot-game
+
+## compile / build, run
+1. build using maven `mvn clean package`
+2. run with `java -jar target/java-exam-1.0-pkg.jar`

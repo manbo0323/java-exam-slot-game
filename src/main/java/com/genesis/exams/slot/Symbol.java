@@ -9,12 +9,12 @@ import java.util.EnumMap;
  */
 public enum Symbol {
 
-    BAR(0.05 * 100),
-    BELL(0.10 * 100),
-    PLUM(0.11 * 100),
-    ORANGE(0.16 * 100),
-    CHERRY(0.21 * 100),
-    LEMON(0.45 * 100);
+    BAR(1),
+    BELL(1),
+    PLUM(1),
+    ORANGE(2),
+    CHERRY(3),
+    LEMON(4);
 
     private double weight;
 
@@ -31,42 +31,20 @@ public enum Symbol {
     }
 
     /**
-     * BAR BAR BAR * 1,000
-     * BELL BELL BELL or BAR * 200
-     * PLUM PLUM PLUM or BAR * 150
-     * ORANGE ORANGE ORANGE or BAR * 90
-     * CHERRY CHERRY CHERRY * 20
-     * CHERRY CHERRY --- * 5
-     * CHERRY --- --- * 2
-     * LEMON LEMON LEMON * 3
+     * BAR BAR BAR * 20
+     * BELL BELL BELL * 20
+     * PLUM PLUM PLUM * 20
+     * BAR BELL PLUM * 30
      */
     public static int multiple(EnumMap<Symbol, Integer> symbolHitCounts) {
-        if (symbolHitCounts.get(BAR) != null && symbolHitCounts.get(BAR) >= 3) {
-            return 1000;
-        } else if (symbolHitCounts.get(BELL) != null && (symbolHitCounts.get(BELL) >= 3 ||
-                symbolHitCounts.get(BELL) == 2 && symbolHitCounts.get(BAR) == 1)) {
-            return 200;
-        } else if (symbolHitCounts.get(PLUM) != null && (symbolHitCounts.get(PLUM) >= 3 ||
-                symbolHitCounts.get(PLUM) == 2 && symbolHitCounts.get(BAR) == 1)) {
-            return 150;
-        } else if (symbolHitCounts.get(ORANGE) != null && (symbolHitCounts.get(ORANGE) >= 3 ||
-                symbolHitCounts.get(ORANGE) == 2 && symbolHitCounts.get(BAR) == 1)) {
-            return 90;
-        } else if (symbolHitCounts.get(LEMON) != null && symbolHitCounts.get(LEMON) >= 3) {
-            return 3;
-        } else {
-            if (symbolHitCounts.get(CHERRY) != null) {
-                switch (symbolHitCounts.get(CHERRY)) {
-                    case 3:
-                        return 20;
-                    case 2:
-                        return 5;
-                    case 1:
-                        return 2;
-                    default:
-                        return 0;
-                }
-            }
+        if ((symbolHitCounts.get(BAR) != null && symbolHitCounts.get(BAR) >= 3) ||
+                (symbolHitCounts.get(BELL) != null && symbolHitCounts.get(BELL) >= 3) ||
+                (symbolHitCounts.get(PLUM) != null && symbolHitCounts.get(PLUM) >= 3)) {
+            return 20;
+        } else if (symbolHitCounts.get(BAR) != null && (symbolHitCounts.get(BAR) == 1) &&
+                symbolHitCounts.get(BELL) != null && (symbolHitCounts.get(BELL) == 1) &&
+                symbolHitCounts.get(PLUM) != null && (symbolHitCounts.get(PLUM) == 1)) {
+            return 30;
         }
         return 0;
     }

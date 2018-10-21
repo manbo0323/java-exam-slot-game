@@ -1,14 +1,10 @@
 package com.genesis.exams.slot;
 
-import com.google.common.base.Joiner;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-import com.google.common.collect.ObjectArrays;
 
 import java.text.DecimalFormat;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 /**
